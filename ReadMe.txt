@@ -1,0 +1,2 @@
+International Debt Statistics - PPG Bilateral Debt
+Public and publicly guaranteed bilateral debt includes loans from governments and their agencies (including central banks), loans from autonomous bodies, and direct loans from official export credit agencies. Data are in current U.S. dollars.
