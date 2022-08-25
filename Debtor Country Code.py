@@ -17,9 +17,9 @@ sourcesJSON = sources.json()
 #Get indicator code of required data
 indicators = requests.get("http://api.worldbank.org/v2/indicator?format=json&source=6&per_page=600")
 indicatorsJSON = indicators.json()
-# for i in indicatorsJSON[1]:
-#     IDSindicators = (i["id"],i["name"])
-#     print(i['id'], i['name'])
+ for i in indicatorsJSON[1]:
+     IDSindicators = (i["id"],i["name"])
+     print(i['id'], i['name'])
 
 #Getting information of selected indicator
 indicator = "DT.DOD.BLAT.CD"
@@ -29,25 +29,24 @@ for dict_entity in indicatorsJSON[1]:
     else:
         pass
 
-# # Requesting the locations
-# dlocations = requests.get("http://api.worldbank.org/v2/sources/6/country?per_page=300&format=JSON")
-# dlocationsJSON = dlocations.json()
+# Requesting the locations
+ dlocations = requests.get("http://api.worldbank.org/v2/sources/6/country?per_page=300&format=JSON")
+ dlocationsJSON = dlocations.json()
 
-# # Parse through the response to see the location IDs and names
-# dlocations = dlocationsJSON["source"][0]["concept"][0]["variable"]
-# listLen = int(len(dlocations))
+# Parse through the response to see the location IDs and names
+ dlocations = dlocationsJSON["source"][0]["concept"][0]["variable"]
+ listLen = int(len(dlocations))
 
-# # Create dataframe with location values
-# df = pd.DataFrame(columns=["id", "value"])     
-# for i in range(0,listLen):
-#     code = dlocations[i]["id"]
-#     name = dlocations[i]["value"]
-#     df = df.append({"id":code, "value":name}, ignore_index = True)
-# dlocationsList = df
-# #print(dlocationsList)
+# Create dataframe with location values
+ df = pd.DataFrame(columns=["id", "value"])     
+ for i in range(0,listLen):
+    code = dlocations[i]["id"]
+     name = dlocations[i]["value"]
+     df = df.append({"id":code, "value":name}, ignore_index = True)
+ dlocationsList = df
+ #print(dlocationsList)
 
 # #Converting the gathered data into Excel file
-# datatoexcel = pd.ExcelWriter('Debtor Country Code.xlsx')
-# dlocationsList.to_excel(datatoexcel)
-# datatoexcel.save()
-# print("Excel File Saved")
+ dlocationsList.to_excel(datatoexcel)
+ datatoexcel.save()
+ print("Excel File Saved")
