@@ -16,4 +16,4 @@ If you have been following new recently, you may have come across various headli
 
 **India - Neighbours PPG Bilateral Debt:**
 
-My project collects data of PPG bilateral lending between India and its neighbouring countries which include Bangladesh, Bhutan, Sri Lanka, Nepal, Maldives & Myanmar. I have wrangled and analysed data from last 20 years of each country individually and visualized the data in form of dashboard for easy understanding of lending trend. Download the excel file to view project
+My project collects data of PPG bilateral lending between India and its neighbouring countries which include Bangladesh, Bhutan, Sri Lanka, Nepal, Maldives & Myanmar. I have wrangled and analysed data from last 20 years of each country individually and visualized the data in form of dashboard for easy understanding of lending trend. Download the excel file and powerpoint presentation to view project
