@@ -8,26 +8,26 @@ sources = requests.get("http://api.worldbank.org/v2/sources?per_page=100&format=
 sourcesJSON = sources.json()
 
 #Get ID of required data source
-# for i in sourcesJSON[1]:
-#     if i["name"] == "International Debt Statistics":
-#         print("ID of International Debt Statistics is " + i["id"])
-#     else:
-#         pass
+for i in sourcesJSON[1]:
+    if i["name"] == "International Debt Statistics":
+        print("ID of International Debt Statistics is " + i["id"])
+    else:
+        pass
 
 #Get indicator code of required data
 indicators = requests.get("http://api.worldbank.org/v2/indicator?format=json&source=6&per_page=600")
 indicatorsJSON = indicators.json()
-# for i in indicatorsJSON[1]:
-#     IDSindicators = (i["id"],i["name"])
-#     print(i['id'], i['name'])
+for i in indicatorsJSON[1]:
+    IDSindicators = (i["id"],i["name"])
+    print(i['id'], i['name'])
 
 #Getting information of selected indicator
-# indicator = "DT.DOD.DIMF.CD"
-# for dict_entity in indicatorsJSON[1]:
-#     if dict_entity["id"] == indicator:
-#         print(dict_entity["sourceNote"])
-#     else:
-#         pass
+indicator = "DT.DOD.BLAT.CD"
+for dict_entity in indicatorsJSON[1]:
+    if dict_entity["id"] == indicator:
+        print(dict_entity["sourceNote"])
+    else:
+        pass
 
 # Requesting the locations
 clocations = requests.get("http://api.worldbank.org/v2/sources/6/counterpart-area?per_page=300&format=JSON")
@@ -44,10 +44,8 @@ for i in range(0,listLen):
     name = clocations[i]["value"]
     df = df.append({"id":code, "value":name}, ignore_index = True)
 clocationsList = df
-#print(clocationsList)
+print(clocationsList)
 
 #Converting the gathered data into Excel file
-datatoexcel = pd.ExcelWriter('Creditor Country Code.xlsx')
-clocationsList.to_excel(datatoexcel)
-datatoexcel.save()
+clocationsList.to_excel('Debtor Country Code.xlsx')
 print("Excel File Saved")
