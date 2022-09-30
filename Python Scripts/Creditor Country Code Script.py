@@ -47,5 +47,5 @@ clocationsList = df
 print(clocationsList)
 
 #Converting the gathered data into Excel file
-clocationsList.to_excel('Debtor Country Code.xlsx')
+clocationsList.to_excel('Creditor Country Code.xlsx')
 print("Excel File Saved")
